@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   /* config options here */
+//    allowedDevOrigins: ['127.0.0.1:3000'],
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

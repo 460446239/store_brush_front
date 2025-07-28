@@ -1,0 +1,22 @@
+{
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "forgot_password": "Forgot your password?",
+    "signin": "Sign In",
+    "signin_desc": "Sign in to your account",
+    "signup": "Sign Up",
+    "signup_desc": "Create your account",
+    "no_account": "Don't have an account?",
+    "already_account": "Already have an account? ",
+    "forgot": "Forgot Password",
+    "placeholder": {
+        "input": "Please enter {field}"
+    },
+    "errors": {
+        "empty": "Invalid input",
+        "email": "The email format is incorrect",
+        "password": "Password should be between 6 and 16 characters",
+        "confirm_password": "The passwords you entered twice do not match."
+    }
+}
