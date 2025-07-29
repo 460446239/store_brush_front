@@ -1,4 +1,6 @@
 {
+    "language": "Language",
+    "language_desc": "Switch the page language",
     "email": "Email",
     "password": "Password",
     "confirm_password": "Confirm Password",
