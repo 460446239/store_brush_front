@@ -3,45 +3,58 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2Icon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "use-intl";
 import { z } from "zod"
+import { toast } from "sonner";
+import { post } from "./actions";
+import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
-    email: z.email(),
+    account: z.email(),
     password: z.string()
         .min(6)
-        .max(16)
+        .max(32)
 });
 
 export const SignInForm = () => {
     const t = useTranslations();
+    const search = useSearchParams();
+    const router = useRouter();
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         mode: 'onChange',
         defaultValues: {
-            email: '',
+            account: '',
             password: '',
         }
     });
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
-        console.log(data);
+        try {
+            await post(data);
+            const redirect = search.get('redirect');
+            if (redirect) {
+                router.replace(redirect);
+            }
+        } catch (e: any) {
+            toast.error(e.message);
+        }
     }
 
     return <Form className="flex flex-col gap-6" form={form} onSubmit={onSubmit}>
-        <FormField name="email"
-            label={t('email')}
+        <FormField name="account"
+            label={t('account')}
             reqired>
             <Input placeholder="xxx@example.com" />
         </FormField>
         <FormField name="password"
             label={<div className="flex justify-between w-full">
                 {t('password')}
-                <Link href="/forgot" replace prefetch className="font-normal text-foreground hover:text-primary">{t('forgot_password')}</Link>
+                <Link href="/forgot" replace prefetch className="font-normal text-xs text-foreground hover:text-primary">{t('forgot_password')}</Link>
             </div>}
             reqired>
             <Input type="password" placeholder={t('placeholder.input', { field: t('password').toLowerCase() })} />

@@ -3,40 +3,54 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2Icon } from "lucide-react";
+import { ChevronLeft, Loader2Icon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "use-intl";
 import { z } from "zod"
+import { toast } from "sonner"
+import { post } from "./actions";
+import { useSearchParams } from "next/navigation";
+
 
 const schema = z.object({
-    email: z.email(),
+    account: z.email(),
     password: z.string()
         .min(6)
         .max(16),
-    confirm_password:  z.string().min(1)
-}).refine((data) =>  data.password === data.confirm_password, { path: ['confirm_password'] });
+    invite_code: z.string().optional()
+});
 
 export const SignUpForm = () => {
     const t = useTranslations();
+    const search = useSearchParams();
+    const router = useRouter();
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         mode: 'onChange',
         defaultValues: {
-            email: '',
+            account: '',
             password: '',
-            confirm_password: '',
+            invite_code: undefined,
         }
     });
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
-        console.log(data);
+        try {
+            await post(data);
+            const redirect = search.get('redirect');
+            if (redirect) {
+                router.replace(redirect);
+            }
+        } catch (e: any) {
+            toast.error(e.message);
+        }
     }
 
     return <Form className="flex flex-col gap-6" form={form} onSubmit={onSubmit}>
-        <FormField name="email"
-                   label={t('email')}
+        <FormField name="account"
+                   label={t('account')}
                    reqired>
             <Input placeholder="xxx@example.com" />
         </FormField>
@@ -45,10 +59,9 @@ export const SignUpForm = () => {
                    reqired>
             <Input type="password" placeholder={t('placeholder.input', { field: t('password').toLowerCase() })} />
         </FormField>
-        <FormField name="confirm_password"
-                   label={t('confirm_password')}
-                   reqired>
-            <Input type="password" placeholder={t('placeholder.input', { field: t('confirm_password').toLowerCase() })} />
+        <FormField name="invite_code"
+                   label={t('invite_code')}>
+            <Input placeholder={t('placeholder.input', { field: t('invite_code').toLowerCase() })} />
         </FormField>
         <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? <Loader2Icon className="animate-spin" /> : null}
@@ -69,7 +82,13 @@ const SignUp = () => {
       <div className="flex w-full max-w-sm flex-col gap-6">
         <Card>
             <CardHeader className="text-center">
-                <CardTitle className="text-xl"> { t('signup_desc') }</CardTitle>
+                
+                <CardTitle className="text-xl"> 
+                    <div className="flex items-center">
+                        <Link href="/"><ChevronLeft /></Link>
+                        { t('signup_desc') }
+                    </div>
+                </CardTitle>
             </CardHeader>
             <CardContent>
                 <SignUpForm />

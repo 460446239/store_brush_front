@@ -2,8 +2,15 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-//    allowedDevOrigins: ['127.0.0.1:3000'],
+    /* config options here */
+    turbopack: {
+        rules: {
+            '*.svg': {
+                loaders: ['@svgr/webpack'],
+                as: '*.js',
+            },
+        }
+    },
 };
 
 const withNextIntl = createNextIntlPlugin();

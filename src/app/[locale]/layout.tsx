@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import {routing} from '@/i18n/routing';
 import { NextIntlClientProvider } from "next-intl";
 import Providers from "./providers";
+import { Toaster } from 'sonner';
 import "@/app/globals.css";
 
 const geistSans = Geist({
@@ -42,6 +43,7 @@ export default async function RootLayout({
                 <NextIntlClientProvider>
                     <Providers>
                         {children}
+                        <Toaster richColors />
                     </Providers>
                 </NextIntlClientProvider>
             </body>

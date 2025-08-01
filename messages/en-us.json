@@ -1,9 +1,9 @@
 {
     "language": "Language",
     "language_desc": "Switch the page language",
-    "email": "Email",
+    "account": "Email",
     "password": "Password",
-    "confirm_password": "Confirm Password",
+    "invite_code": "Invite Code",
     "forgot_password": "Forgot your password?",
     "signin": "Sign In",
     "signin_desc": "Sign in to your account",
@@ -12,13 +12,28 @@
     "no_account": "Don't have an account?",
     "already_account": "Already have an account? ",
     "forgot": "Forgot Password",
+    "tabbar": {
+        "home": "Home",
+        "teams": "Teams",
+        "record": "Record",
+        "profile": "Profile"
+    },
     "placeholder": {
         "input": "Please enter {field}"
     },
     "errors": {
+        "server": "Server error",
         "empty": "Invalid input",
-        "email": "The email format is incorrect",
-        "password": "Password should be between 6 and 16 characters",
-        "confirm_password": "The passwords you entered twice do not match."
+        "account": "The email format is incorrect",
+        "password": "Password should be between 6 and 32 characters",
+        "invite_code": "The passwords you entered twice do not match.",
+        "410000": "Incomplete parameters",
+        "410025": "Incorrect account and password",
+        "400762": "Password should be between 6 and 32 characters",
+        "410027": "The account has been frozen",
+        "410019": "Token generation failed",
+        "410028": "Account already exists",
+        "410100": "The invitation code does not exist",
+        "410014": "Error creating new account, please try again"
     }
 }

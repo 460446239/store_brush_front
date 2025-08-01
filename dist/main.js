@@ -120,6 +120,7 @@ function _ts_generator(thisArg, body) {
 }
 import Fastify from 'fastify';
 import next from 'next';
+import { parse } from 'url';
 var fastify = Fastify({
     logger: false
 });
@@ -136,15 +137,19 @@ next_app.prepare().then(function() {
     var handle = next_app.getRequestHandler();
     fastify.all('*', function(req, reply) {
         return _async_to_generator(function() {
+            var parsedUrl;
             return _ts_generator(this, function(_state) {
                 switch(_state.label){
                     case 0:
+                        parsedUrl = parse(req.url, true);
+                        console.log(parsedUrl);
                         return [
                             4,
-                            handle(req.raw, reply.raw)
+                            handle(req.raw, reply.raw, parsedUrl)
                         ];
                     case 1:
                         _state.sent();
+                        console.log('1234555');
                         reply.hijack();
                         return [
                             2

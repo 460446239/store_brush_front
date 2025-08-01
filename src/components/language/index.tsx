@@ -12,14 +12,18 @@ const Languages = [
     { key: 'zh-cn', label: '简体中文' },
 ];
 
-const Language = () => {
+interface LanguageProps {
+    className?: string
+}
+
+const Language = (props: LanguageProps) => {
     const t = useTranslations();
     const [open, setOpen] = useState(false);
     const pathname = usePathname();
     const locale = useLocale();
 
-    return <div>
-                <Globe className="cursor-pointer hover:text-primary" onClick={() => setOpen(true)} />
+    return <>
+                <Globe className={cn("cursor-pointer hover:text-primary", props.className)} onClick={() => setOpen(true)} />
                 <Dialog open={open} onOpenChange={setOpen}>
                     <DialogContent>
                         <DialogHeader>
@@ -39,7 +43,7 @@ const Language = () => {
                         </ScrollArea>
                     </DialogContent>
                 </Dialog>
-            </div>
+            </>
 }
 
 export default Language;

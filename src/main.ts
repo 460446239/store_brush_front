@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 import next from 'next'
+import { parse } from 'url';
 
 const fastify = Fastify({
   logger: false
@@ -17,7 +18,10 @@ next_app.prepare().then(() => {
     // Run nextjs
     const handle = next_app.getRequestHandler();
     fastify.all('*', async (req, reply) => {
-        await handle(req.raw, reply.raw);
+        const parsedUrl = parse(req.url!, true);
+        console.log(parsedUrl);
+        await handle(req.raw, reply.raw, parsedUrl);
+        console.log('1234555');
         reply.hijack();
     });
 
