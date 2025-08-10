@@ -12,6 +12,11 @@
     "no_account": "Don't have an account?",
     "already_account": "Already have an account? ",
     "forgot": "Forgot Password",
+    "signout": "Sign Out",
+    "balance": "Balance",
+    "credit_score": "Credit Score",
+    "top_up": "Top Up",
+    "withdraw": "Withdraw",
     "tabbar": {
         "home": "Home",
         "teams": "Teams",

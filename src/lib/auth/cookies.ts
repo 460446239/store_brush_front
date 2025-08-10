@@ -41,7 +41,8 @@ export async function setAuthCookies(
     }
 }
 
-export function clearAuthCookies(cookies: ResponseCookies) {
-    cookies.delete(AUTH_COOKIE_NAME)
-    cookies.delete(REFRESH_COOKIE_NAME)
+export async function clearAuthCookies() {
+    const cookieStore = await cookies();
+    cookieStore.delete(AUTH_COOKIE_NAME)
+    cookieStore.delete(REFRESH_COOKIE_NAME)
 }

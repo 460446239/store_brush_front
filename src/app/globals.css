@@ -54,42 +54,42 @@ body {
     --primary: oklch(0.6473 0.2381 17.71); 
     --primary-foreground: oklch(1 0 0);
 
-    /* 暗色模式背景：深黑，略带冷色调 */
-    --background: oklch(0.15 0.02 240);
-    --foreground: oklch(0.95 0.01 240);
+    /* 亮色模式背景：纯白，干净明亮 */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.15 0.01 240);
 
-    --card: oklch(0.15 0.02 240);
-    --card-foreground: oklch(0.95 0.01 240);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.15 0.01 240);
 
-    --popover: oklch(0.15 0.02 240);
-    --popover-foreground: oklch(0.95 0.01 240);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.15 0.01 240);
 
-    /* 暗色次要色 */
-    --secondary: oklch(0.25 0.02 240);
-    --secondary-foreground: oklch(0.9 0.01 240);
+    /* 亮色次要色 */
+    --secondary: oklch(0.96 0.01 240);
+    --secondary-foreground: oklch(0.15 0.01 240);
 
-    --muted: oklch(0.25 0.02 240);
-    --muted-foreground: oklch(0.7 0.02 240);
+    --muted: oklch(0.96 0.01 240);
+    --muted-foreground: oklch(0.45 0.02 240);
 
-    --accent: oklch(0.25 0.02 240);
-    --accent-foreground: oklch(0.92 0.01 240);
+    --accent: oklch(0.96 0.01 240);
+    --accent-foreground: oklch(0.15 0.01 240);
 
-    /* 暗色模式下破坏色稍暗 */
-    --destructive: oklch(0.4 0.15 20);
+    /* 亮色模式下破坏色 */
+    --destructive: oklch(0.6 0.2 20);
 
-    --border: oklch(0.25 0.02 240);
-    --input: oklch(0.25 0.02 240);
+    --border: oklch(0.9 0.01 240);
+    --input: oklch(0.96 0.01 240);
     --ring: oklch(0.6473 0.2381 17.71);
 
     --radius: 0.625rem;
 
-    --sidebar: hsl(240 5.9% 10%);
-    --sidebar-foreground: hsl(240 4.8% 95.9%);
+    --sidebar: hsl(0 0% 98%);
+    --sidebar-foreground: hsl(240 5.9% 10%);
     --sidebar-primary: oklch(0.6473 0.2381 17.71);
     --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(240 3.7% 15.9%);
-    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-border: hsl(240 3.7% 15.9%);
+    --sidebar-accent: hsl(240 4.8% 95.9%);
+    --sidebar-accent-foreground: hsl(240 5.9% 10%);
+    --sidebar-border: hsl(240 5.9% 90%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 

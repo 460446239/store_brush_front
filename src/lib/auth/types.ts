@@ -1,8 +1,11 @@
 export interface User {
     uid: number
     avatar: string
-    nickname?: string
+    email: string
+    nickname: string
     invite_code: string
+    now_money: string
+    credit_score: number
 }
 
 export interface Session {

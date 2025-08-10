@@ -1,6 +1,6 @@
 import { User, Session } from './types'
 import { signToken, verifyToken } from './jwt'
-import { getAuthCookies, setAuthCookies } from './cookies'
+import { getAuthCookies, setAuthCookies, clearAuthCookies } from './cookies'
 import * as UserService from './user-service'
 
 export async function createSession(user: User): Promise<Session> {
@@ -59,6 +59,11 @@ export async function signUp(credentials: UserService.SignUpProps): Promise<User
     const session = await createSession(user);
     await setAuthCookies(session.accessToken, session.refreshToken);
     return user;
+}
+
+export async function signOut(): Promise<void> {
+
+    await clearAuthCookies();
 }
 
 export async function getCurrentUser(): Promise<User | null> {

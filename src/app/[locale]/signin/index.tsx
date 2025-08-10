@@ -39,6 +39,8 @@ export const SignInForm = () => {
             const redirect = search.get('redirect');
             if (redirect) {
                 router.replace(redirect);
+            } else {
+                router.back();
             }
         } catch (e: any) {
             toast.error(e.message);
