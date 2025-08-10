@@ -6,7 +6,9 @@ import {routing} from '@/i18n/routing';
 import { NextIntlClientProvider } from "next-intl";
 import Providers from "./providers";
 import { Toaster } from 'sonner';
+import { getUser } from "@/lib/auth/server";
 import "@/app/globals.css";
+import { AuthProvider } from "@/lib/auth/context";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default async function RootLayout({
     params: Promise<{locale: string}>;
 }>) {
     const {locale} = await params;
+    const user = await getUser();
     if (!hasLocale(routing.locales, locale)) {
         notFound();
     }
@@ -42,7 +45,9 @@ export default async function RootLayout({
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <NextIntlClientProvider>
                     <Providers>
-                        {children}
+                        <AuthProvider initialUser={user}>
+                            {children}
+                        </AuthProvider>
                         <Toaster richColors />
                     </Providers>
                 </NextIntlClientProvider>

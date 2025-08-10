@@ -1,5 +1,4 @@
 'use client';
-
 import { ProgressProvider } from '@bprogress/next/app';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
@@ -9,7 +8,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
             color="var(--primary)"
             options={{ showSpinner: false }}
             shallowRouting>
-            {children}
+             { children }
         </ProgressProvider>
     );
 };

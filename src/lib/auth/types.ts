@@ -22,11 +22,5 @@ export interface AuthTokens {
 
 export interface AuthContextType {
     user: User | null
-    session: Session | null
-    isLoading: boolean
     isAuthenticated: boolean
-    signIn: (credentials: { email: string; password: string }) => Promise<void>
-    signOut: () => Promise<void>
-    signUp: (credentials: { email: string; password: string; name?: string }) => Promise<void>
-    refreshSession: () => Promise<void>
 }

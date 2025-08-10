@@ -14,7 +14,7 @@ export const MENUS = [
     {
         path: '/brush',
         mobile: true,
-        icon: <ButtonIcon />
+        icon: <ButtonIcon className="w-12"/>
     },
     {
         path: '/record',

@@ -11,7 +11,9 @@ export default async function Layout({
 }>) {
     const t = await getTranslations();
     return <>
-        {children}
+        <div className="h-[calc(100vh-3.5rem)] flex flex-col">
+            {children}
+        </div>
         {modal}
         <Tabbar items={MENUS} />
     </>;

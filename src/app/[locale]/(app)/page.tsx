@@ -8,6 +8,7 @@ import { LogOutIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { signout } from "./actions";
 import { MENUS } from "@/app/constant";
+import LogoIcon from '@/assests/icons/logo.svg';
 
 
 export default async function Home() {
@@ -17,7 +18,8 @@ export default async function Home() {
     return (
         <>
             <div className="md:flex md:items-center">
-                <div className="w-full flex p-2">
+                <div className="flex p-2 w-full">
+                    <LogoIcon className="w-20"/>
                     <span className="flex-1" />
                     <Language />
                 </div>

@@ -17,6 +17,7 @@
     "credit_score": "Credit Score",
     "top_up": "Top Up",
     "withdraw": "Withdraw",
+    "copy_success": "Copy successful",
     "tabbar": {
         "home": "Home",
         "teams": "Teams",
@@ -40,5 +41,12 @@
         "410028": "Account already exists",
         "410100": "The invitation code does not exist",
         "410014": "Error creating new account, please try again"
+    },
+    "teams": {
+    },
+    "profile": {
+        "cash_flow": "Cash flow",
+        "top_up_flow": "Top Up flow",
+        "withdraw_flow": "Withdraw flow"
     }
 }
