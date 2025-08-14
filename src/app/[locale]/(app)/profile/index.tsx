@@ -43,7 +43,7 @@ const Profile = () => {
                     <span className="border-[1px] border-primary rounded-sm p-2  mb-2">
                         <label className="text-sm text-secondary-foreground">{t('balance')}</label>
                         <span className="mx-2 border-r-[1px] border-dashed"/>
-                        {user?.now_money}
+                        {`$ ${user?.now_money}`}
                     </span>
                     <div className="flex items-center w-full mt-3">
                         <Link className="flex-1" href="/signin">

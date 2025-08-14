@@ -18,6 +18,7 @@
     "top_up": "Top Up",
     "withdraw": "Withdraw",
     "copy_success": "Copy successful",
+    "withdraw_carousel": "User {user} withdrew {amount} USD",
     "tabbar": {
         "home": "Home",
         "teams": "Teams",
@@ -48,5 +49,8 @@
         "cash_flow": "Cash flow",
         "top_up_flow": "Top Up flow",
         "withdraw_flow": "Withdraw flow"
+    },
+    "product": {
+        "title": "Popular Products"
     }
 }

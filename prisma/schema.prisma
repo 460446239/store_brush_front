@@ -7,3 +7,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+    id        Int      @id @default(autoincrement())
+    image     String?
+    storeName String   @map("store_name")
+    price     Decimal
+
+    @@map("eb_store_product")
+}
