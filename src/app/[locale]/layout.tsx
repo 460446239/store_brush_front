@@ -22,8 +22,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Brush',
-        template: '%s | Brush'
+        absolute: process.env.NEXT_PUBLIC_PROJECT_TYPE ?? '',
+        template: `%s | ${process.env.NEXT_PUBLIC_PROJECT_TYPE ?? ''}`
     },
     description: "",
 };

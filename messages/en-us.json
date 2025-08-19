@@ -9,15 +9,18 @@
     "signin_desc": "Sign in to your account",
     "signup": "Sign Up",
     "signup_desc": "Create your account",
+    "signin_success": "Sign in successfully and start your journey",
     "no_account": "Don't have an account?",
     "already_account": "Already have an account? ",
     "forgot": "Forgot Password",
     "signout": "Sign Out",
     "balance": "Balance",
+    "profit": "Profit",
     "credit_score": "Credit Score",
     "top_up": "Top Up",
     "withdraw": "Withdraw",
     "copy_success": "Copy successful",
+    "confirm": "Confirm",
     "withdraw_carousel": "User {user} withdrew {amount} USD",
     "tabbar": {
         "home": "Home",
@@ -34,14 +37,18 @@
         "account": "The email format is incorrect",
         "password": "Password should be between 6 and 32 characters",
         "invite_code": "The passwords you entered twice do not match.",
+        "400": "Not Found",
         "410000": "Incomplete parameters",
+        "420400": "Insufficient balance",
+        "420401": "Not open",
         "410025": "Incorrect account and password",
         "400762": "Password should be between 6 and 32 characters",
         "410027": "The account has been frozen",
         "410019": "Token generation failed",
         "410028": "Account already exists",
         "410100": "The invitation code does not exist",
-        "410014": "Error creating new account, please try again"
+        "410014": "Error creating new account, please try again",
+        "420301": "You have unfinished orders, please process them"
     },
     "teams": {
     },
@@ -52,5 +59,19 @@
     },
     "product": {
         "title": "Popular Products"
+    },
+    "brush": {
+        "title": "Brush",
+        "today_profit": "Today's profit",
+        "taks_num": "Total tasks",
+        "bruch_num": "Total completed",
+        "debt_fee": "Difference",
+        "follow": "Follow",
+        "order_no": "Order No",
+        "trasnaction_at": "Trasnaction time",
+        "amount": "Order amount",
+        "profit": "Expected profit",
+        "rate": "Rate",
+        "brush_success": "Order completed"
     }
 }

@@ -22,8 +22,6 @@ const schema = z.object({
 
 export const SignInForm = () => {
     const t = useTranslations();
-    const search = useSearchParams();
-    const router = useRouter();
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         mode: 'onChange',
@@ -36,12 +34,8 @@ export const SignInForm = () => {
     const onSubmit = async (data: z.infer<typeof schema>) => {
         try {
             await post(data);
-            const redirect = search.get('redirect');
-            if (redirect) {
-                router.replace(redirect);
-            } else {
-                router.back();
-            }
+            toast.success(t('signin_success'));
+            location.reload();
         } catch (e: any) {
             toast.error(e.message);
         }

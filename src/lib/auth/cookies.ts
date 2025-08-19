@@ -1,7 +1,5 @@
 // lib/auth/cookies.ts
 import { cookies } from 'next/headers'
-import { ResponseCookies } from 'next/dist/server/web/spec-extension/cookies'
-
 export const AUTH_COOKIE_NAME = 'auth-session'
 export const REFRESH_COOKIE_NAME = 'refresh-token'
 

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "next dev --turbopack",
-    "build": "next build --t"
+    "build": "next build --turbopack"
   },
   "dependencies": {
     "@bprogress/next": "^3.2.12",
