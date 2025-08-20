@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import http from '@/lib/client';
 import { toast } from "sonner";
+import dayjs from 'dayjs';
 
 interface BrushOrder {
     id: number
@@ -21,8 +22,17 @@ interface BrushOrder {
     paid: boolean
     // 利润
     rebate_fee: string
+    // 产品信息
+    cart_id: {
+        num: number
+        goods: {
+            image: string
+            store_name: string
+            price: string
+        }
+    }
     // 交易时间
-    addtime: string
+    add_time: string
 }
 export type BrushItem = {
     key: string;
@@ -44,10 +54,6 @@ const BRUSH_ITEMS: BrushItem[] = [
         key: 'profit',
         data_key: "rebate_fee",
         unit: "$"
-    },
-    {
-        key: 'trasnaction_at',
-        data_key: 'addtime',
     },
 ];
 
@@ -85,15 +91,30 @@ const Brush = () => {
                     <DialogDescription></DialogDescription>
                 </DialogHeader>
                 <div className="w-full">
-                    <ul>
+                    <div className="flex">
+                        <img className="size-24 shrink-0 border mr-2 rounded-sm" src={order?.cart_id.goods.image} alt={order?.cart_id.goods.store_name}/>
+                        <div>
+                            <label>{ order?.cart_id.goods.store_name }</label>
+                            <div className="text-muted-foreground flex items-center justify-between">
+                                <label>${ order?.cart_id.goods.price }</label>
+                                <label>x{ order?.cart_id.num }</label>
+                            </div>
+                        </div>
+                    </div>
+                    <ul className="mt-6">
                         {
                             BRUSH_ITEMS.map((item) => {
                                 return <li key={item.key} className="flex items-center justify-between py-1 text-sm">
                                     <label className="text-muted-foreground">{t(`brush.${item.key}`)}:</label>
+                                    {/* @ts-ignore */}
                                     <label>{item.unit} {order?.[item.data_key] ?? '\u00A0'}</label>
                                 </li>
                             })
                         }
+                        <li className="flex items-center justify-between py-1 text-sm">
+                            <label className="text-muted-foreground">{t('brush.trasnaction_at')}:</label>
+                            <label>{ dayjs(order?.add_time).format("YYYY-MM-DD HH:mm") }</label>
+                        </li>
                     </ul>
                     <span className="border-t-[1px] my-6 block" />
                     <div className="flex justify-center flex-col items-center">
