@@ -7,6 +7,7 @@ import { useState } from "react";
 import http from '@/lib/client';
 import { toast } from "sonner";
 import dayjs from 'dayjs';
+import { useSWRConfig } from 'swr'
 
 export type BrushItem = {
     key: string;
@@ -33,12 +34,18 @@ const BRUSH_ITEMS: BrushItem[] = [
 
 const Brush = () => {
     const t = useTranslations();
+    const { mutate } = useSWRConfig();
     const [order, setOrider] = useState<BrushOrder | undefined>();
     const [rating, setRating] = useState(0);
 
     const onBrush = async () => {
         try {
             const order = await http<any, BrushOrder>('/api/bruch_order');
+            await mutate(
+                key => typeof key === 'string' && (key.startsWith('/api/team_log') || key.startsWith('/api/order/list')),
+                undefined,
+                { revalidate: true }
+            );
             setOrider(order);
         } catch (e: any) {
             toast.error(e);
@@ -48,6 +55,11 @@ const Brush = () => {
     const onEvaluate = async () => {
         try {
             await http(`/api/evaluate?id=${order?.id}&evaluate=${rating}`);
+            await mutate(
+                key => typeof key === 'string' && (key.startsWith('/api/team_log') || key.startsWith('/api/order/list')),
+                undefined,
+                { revalidate: true }
+            );
             setOrider(undefined);
             toast.success(t('brush.brush_success'));
             location.reload();

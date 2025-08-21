@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import dayjs from 'dayjs';
 import http from '@/lib/client';
 import { toast } from 'sonner';
+import { useSWRConfig } from 'swr';
 
 const BRUSH_ITEMS: BrushItem[] = [
     {
@@ -32,6 +33,7 @@ const BRUSH_ITEMS: BrushItem[] = [
 
 const Record = () => {
     const t = useTranslations();
+    const { mutate } = useSWRConfig();
     const {
         data,
         isLoadingInitialData,
@@ -46,6 +48,11 @@ const Record = () => {
      const handlePayment = async (order: BrushOrder) => {
         try {
             await http<any, BrushOrder>('/api/pay_border');
+            await mutate(
+                key => typeof key === 'string' && key.startsWith('/api/team_log'),
+                undefined,
+                { revalidate: true }
+            );
             setOrder(order);
         } catch (e: any) {
             toast.error(e);
@@ -55,8 +62,13 @@ const Record = () => {
     const handleEvaluate = async () => {
         try {
             await http(`/api/evaluate?id=${order?.id}&evaluate=${rating}`);
-            setOrder(undefined);
+            await mutate(
+                key => typeof key === 'string' && key.startsWith('/api/team_log'),
+                undefined,
+                { revalidate: true }
+            );
             await refresh()
+            setOrder(undefined);
             toast.success(t('brush.brush_success'));
         } catch (e: any) {
             toast.error(e);
