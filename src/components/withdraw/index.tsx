@@ -41,27 +41,6 @@ const Withdraw = (props: WithdrawProps) => {
                     { name: 'ERC20', chain: 'eth', fee: t('higher_fees') }
                 ]
             },
-            {
-                id: 'trx',
-                name: 'TRX',
-                networks: [
-                    { name: 'TRC20', chain: 'trx', fee: t('native_network') }
-                ]
-            },
-            {
-                id: 'eth',
-                name: 'ETH',
-                networks: [
-                    { name: 'ERC20', chain: 'eth', fee: t('native_network') }
-                ]
-            },
-            {
-                id: 'btc',
-                name: 'BTC',
-                networks: [
-                    { name: 'Bitcoin', chain: 'btc', fee: t('bitcoin_network') }
-                ]
-            }
         ];
     };
 
