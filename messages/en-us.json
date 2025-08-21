@@ -22,6 +22,7 @@
     "copy_success": "Copy successful",
     "confirm": "Confirm",
     "withdraw_carousel": "User {user} withdrew {amount} USD",
+    "loading": "Loading",
     "tabbar": {
         "home": "Home",
         "teams": "Teams",
@@ -48,9 +49,16 @@
         "410028": "Account already exists",
         "410100": "The invitation code does not exist",
         "410014": "Error creating new account, please try again",
-        "420301": "You have unfinished orders, please process them"
+        "420301": "You have unfinished orders, please process them",
+        "420403": "You still have orders that have not been reviewed"
     },
     "teams": {
+        "title": "Team Earnings",
+        "no_data": "No team data available",
+        "team_rebate_fee": "Team Rebate Total",
+        "team_task_num": "Tasks Completed",
+        "under_rebate_fee": "Subordinate Commission",
+        "under_num": "Team Members"
     },
     "profile": {
         "cash_flow": "Cash flow",
@@ -73,5 +81,20 @@
         "profit": "Expected profit",
         "rate": "Rate",
         "brush_success": "Order completed"
+    },
+    "orders": {
+        "title": "Order List",
+        "total_count": "Total {count} orders",
+        "no_data": "No order data available",
+        "order_id": "Order ID",
+        "product_info": "Product Info",
+        "unit_price": "Unit Price",
+        "total_price": "Total Price",
+        "outstanding": "Outstanding",
+        "profit": "Profit",
+        "status": "Status",
+        "quantity": "Quantity",
+        "paid": "Paid",
+        "unpaid": "Unpaid"
     }
 }

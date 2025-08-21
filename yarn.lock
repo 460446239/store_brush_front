@@ -2022,6 +2022,13 @@
   resolved "https://registry.npmmirror.com/@types/react-dom/-/react-dom-19.1.6.tgz#4af629da0e9f9c0f506fc4d1caa610399c595d64"
   integrity sha512-4hOiT/dwO8Ko0gV1m/TJZYk3y0KBnY9vzDh7W+DH17b2HFSOGgdj33dhihPeuy3l0q23+4e+hoXHV6hCC4dCXw==
 
+"@types/react-infinite-scroller@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.npmmirror.com/@types/react-infinite-scroller/-/react-infinite-scroller-1.2.5.tgz#7c770be59465f3aaa1b86377d792d52de5e74047"
+  integrity sha512-fJU1jhMgoL6NJFrqTM0Ob7tnd2sQWGxe2ESwiU6FZWbJK/VO/Er5+AOhc+e2zbT0dk5pLygqctsulOLJ8xnSzw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "19.1.9"
   resolved "https://registry.npmmirror.com/@types/react/-/react-19.1.9.tgz#f42b24f35474566a39b5c3a98e4d0c425b79a849"
@@ -2764,6 +2771,11 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
+
+dequal@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmmirror.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
 detect-libc@^2.0.3, detect-libc@^2.0.4:
   version "2.0.4"
@@ -4302,7 +4314,7 @@ prisma@^6.12.0:
     "@prisma/config" "6.12.0"
     "@prisma/engines" "6.12.0"
 
-prop-types@^15.8.1:
+prop-types@^15.5.8, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4345,6 +4357,13 @@ react-hook-form@^7.61.1:
   version "7.61.1"
   resolved "https://registry.npmmirror.com/react-hook-form/-/react-hook-form-7.61.1.tgz#8c1f086ccd921a6e90df6800787e9ca3833f86c1"
   integrity sha512-2vbXUFDYgqEgM2RcXcAT2PwDW/80QARi+PKmHy5q2KhuKvOlG8iIYgf7eIlIANR5trW9fJbP4r5aub3a4egsew==
+
+react-infinite-scroller@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npmmirror.com/react-infinite-scroller/-/react-infinite-scroller-1.2.6.tgz#8b80233226dc753a597a0eb52621247f49b15f18"
+  integrity sha512-mGdMyOD00YArJ1S1F3TVU9y4fGSfVVl6p5gh/Vt4u99CJOptfVu/q5V/Wlle72TMgYlBwIhbxK5wF0C/R33PXQ==
+  dependencies:
+    prop-types "^15.5.8"
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -4796,6 +4815,14 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
+swr@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.npmmirror.com/swr/-/swr-2.3.6.tgz#5fee0ee8a0762a16871ee371075cb09422b64f50"
+  integrity sha512-wfHRmHWk/isGNMwlLGlZX5Gzz/uTgo0o2IRuTMcf4CPuPFJZlq0rDaKUx+ozB5nBOReNV1kiOyzMfj+MBMikLw==
+  dependencies:
+    dequal "^2.0.3"
+    use-sync-external-store "^1.4.0"
+
 tailwind-merge@^3.3.1:
   version "3.3.1"
   resolved "https://registry.npmmirror.com/tailwind-merge/-/tailwind-merge-3.3.1.tgz#a7e7db7c714f6020319e626ecfb7e7dac8393a4b"
@@ -5029,7 +5056,7 @@ use-sidecar@^1.1.3:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-use-sync-external-store@^1.5.0:
+use-sync-external-store@^1.4.0, use-sync-external-store@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmmirror.com/use-sync-external-store/-/use-sync-external-store-1.5.0.tgz#55122e2a3edd2a6c106174c27485e0fd59bcfca0"
   integrity sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==

@@ -1,5 +1,4 @@
 import { Tabbar } from "@/components/tabbar";
-import { getTranslations } from "next-intl/server";
 import { MENUS } from "@/app/constant";
 
 export default async function Layout({
@@ -9,9 +8,8 @@ export default async function Layout({
     children: React.ReactNode;
     modal: React.ReactNode;
 }>) {
-    const t = await getTranslations();
     return <>
-        <div className="h-[calc(100vh-3.5rem)] flex flex-col">
+        <div className="h-[calc(100vh-3.5rem)] md:h-[100vh] overflow-auto flex flex-col">
             {children}
         </div>
         {modal}

@@ -104,7 +104,7 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
         const t = await getTranslations();
         return new NextResponse(
             JSON.stringify({
-                message: t(`errors.${data.status ?? 'server'}`)
+                message: t(`errors.${data.code ?? 'server'}`)
             }),
             {
                 status: 500,

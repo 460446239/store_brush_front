@@ -68,7 +68,7 @@ const Page = async () => {
             <span className="mx-2 border" />
             <label className="text-sm text-muted-foreground">
                 {` ${t('brush.debt_fee')}: `}
-                <label className="text-primary">${data.return.debt_fee}</label>
+                <label className="text-primary">${data.return.debt_fee ?? 0}</label>
             </label>
         </div>
     </div>

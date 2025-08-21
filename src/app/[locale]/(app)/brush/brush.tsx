@@ -8,32 +8,6 @@ import http from '@/lib/client';
 import { toast } from "sonner";
 import dayjs from 'dayjs';
 
-interface BrushOrder {
-    id: number
-    // 订单ID
-    order_id: string
-    // 订单总价
-    total_price: string
-    // 欠款
-    pay_price: string
-    // 单价
-    price: string
-    // 付款结果
-    paid: boolean
-    // 利润
-    rebate_fee: string
-    // 产品信息
-    cart_id: {
-        num: number
-        goods: {
-            image: string
-            store_name: string
-            price: string
-        }
-    }
-    // 交易时间
-    add_time: string
-}
 export type BrushItem = {
     key: string;
     data_key: keyof BrushOrder;
