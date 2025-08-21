@@ -95,6 +95,8 @@
         "status": "Status",
         "quantity": "Quantity",
         "paid": "Paid",
-        "unpaid": "Unpaid"
+        "unpaid": "Unpaid",
+        "pay_now": "Pay Now",
+        "rate_now": "Rate"
     }
 }

@@ -8,6 +8,8 @@ interface BrushOrder {
     pay_price: string
     // 单价
     price: string
+    // 评分
+    evaluate: string
     // 付款结果
     paid: boolean
     // 利润
