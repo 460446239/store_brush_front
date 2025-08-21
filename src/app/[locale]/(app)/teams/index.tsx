@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { Users, TrendingUp, DollarSign, Target } from 'lucide-react';
+import { Users, TrendingUp, DollarSign, Target, Loader2Icon } from 'lucide-react';
 import useSWR from 'swr';
 
 interface TeamData {
@@ -13,7 +13,7 @@ interface TeamData {
 }
 
 const Teams: React.FC = () => {
-    const t = useTranslations('teams');
+    const t = useTranslations();
     const { data } = useSWR<any, { team: TeamData }>('/api/team_log');
 
     const formatCurrency = (amount: string | number) => {
@@ -22,11 +22,9 @@ const Teams: React.FC = () => {
     };
     if (!data && (!data?.team?.team_rebate_fee && !data?.team?.team_task_num)) {
         return (
-            <div className="flex items-center justify-center p-4">
-                <div className="bg-white p-8 text-center">
-                    <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                    <p className="text-gray-500 text-lg">{t('no_data')}</p>
-                </div>
+            <div key="loading" className='flex items-center py-6 justify-center text-muted-foreground'>
+                <Loader2Icon className="animate-spin mr-3" /> 
+                { t('loading') }
             </div>
         );
     }
@@ -35,7 +33,7 @@ const Teams: React.FC = () => {
         <div className="p-4">
             {/* Header */}
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">{t('title')}</h1>
+                <h1 className="text-2xl font-bold text-gray-900">{t('teams.title')}</h1>
             </div>
 
             {/* Stats Grid */}
@@ -44,7 +42,7 @@ const Teams: React.FC = () => {
                 <div className="bg-white rounded-lg shadow-md border border-gray-100 p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-600 mb-2">{t('team_rebate_fee')}</p>
+                            <p className="text-sm font-medium text-gray-600 mb-2">{t('teams.team_rebate_fee')}</p>
                             <p className="text-2xl font-bold text-green-600">{formatCurrency(data?.team.team_rebate_fee)}</p>
                         </div>
                         <div className="p-3 rounded-full bg-green-50 text-green-600 ml-4">
@@ -57,7 +55,7 @@ const Teams: React.FC = () => {
                 <div className="bg-white rounded-lg shadow-md border border-gray-100 p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-600 mb-2">{t('team_task_num')}</p>
+                            <p className="text-sm font-medium text-gray-600 mb-2">{t('teams.team_task_num')}</p>
                             <p className="text-2xl font-bold text-blue-600">{data?.team?.team_task_num.toLocaleString()}</p>
                         </div>
                         <div className="p-3 rounded-full bg-blue-50 text-blue-600 ml-4">
@@ -70,7 +68,7 @@ const Teams: React.FC = () => {
                 <div className="bg-white rounded-lg shadow-md border border-gray-100 p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-600 mb-2">{t('under_rebate_fee')}</p>
+                            <p className="text-sm font-medium text-gray-600 mb-2">{t('teams.under_rebate_fee')}</p>
                             <p className="text-2xl font-bold text-purple-600">{formatCurrency(data?.team.under_rebate_fee)}</p>
                         </div>
                         <div className="p-3 rounded-full bg-purple-50 text-purple-600 ml-4">
@@ -83,7 +81,7 @@ const Teams: React.FC = () => {
                 <div className="bg-white rounded-lg shadow-md border border-gray-100 p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-600 mb-2">{t('under_num')}</p>
+                            <p className="text-sm font-medium text-gray-600 mb-2">{t('teams.under_num')}</p>
                             <p className="text-2xl font-bold text-orange-600">{data?.team.under_num}</p>
                         </div>
                         <div className="p-3 rounded-full bg-orange-50 text-orange-600 ml-4">
