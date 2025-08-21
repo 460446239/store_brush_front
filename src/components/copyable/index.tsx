@@ -1,12 +1,14 @@
 'use client'
 import { ReactNode, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Copy, Check, CheckCircle } from 'lucide-react';
+import { Copy, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslations } from 'next-intl';
+import { cn } from '@/lib/utils';
 
 interface CopyableProps {
     text: string
+    className?: string
     children: ReactNode
 }
 
@@ -23,13 +25,13 @@ const Copyable = (props: CopyableProps) => {
     }
     return <CopyToClipboard text={props.text}
                              onCopy={onCopied}>
-                <div className="font-medium flex items-center cursor-pointer">
+                <div className={cn("font-medium flex items-center cursor-pointer text-gray-600", props.className)}>
                     { props.children }
                     {
                         copied ? <>
-                             <CheckCircle className="w-4 h-4 text-green-600" />
+                             <CheckCircle className="ml-2 w-4 h-4 text-green-600" />
                         </> : <>
-                            <Copy className="w-4 h-4 text-gray-600" />
+                            <Copy className="ml-2 w-4 h-4" />
                         </>
                     }
                 </div>

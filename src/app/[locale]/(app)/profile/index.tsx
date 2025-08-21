@@ -25,7 +25,7 @@ const Profile = () => {
                 <label className="font-bold text-primary-foreground">{user?.nickname}</label>
                 <span className="flex items-center text-xs mt-1 text-primary-foreground">
                     <label className="mr-1">{t('invite_code')}:</label>
-                    <Copyable text={user?.invite_code ?? ''}>
+                    <Copyable text={user?.invite_code ?? ''} className="text-white">
                         { user?.invite_code }
                     </Copyable>
                 </span>
