@@ -1,7 +1,7 @@
 'use client'
 import { ReactNode, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslations } from 'next-intl';
 
@@ -27,9 +27,9 @@ const Copyable = (props: CopyableProps) => {
                     { props.children }
                     {
                         copied ? <>
-                            <Check className="ml-2" size={12} />
+                             <CheckCircle className="w-4 h-4 text-green-600" />
                         </> : <>
-                            <Copy className="ml-2" size={12} />
+                            <Copy className="w-4 h-4 text-gray-600" />
                         </>
                     }
                 </div>

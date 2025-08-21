@@ -27,6 +27,11 @@ interface BrushOrder {
     add_time: number
 }
 
+interface Address {
+    address: string
+    chain: string
+}
+
 interface Paginate<T> {
     page: number
     limit: number

@@ -98,5 +98,38 @@
         "unpaid": "Unpaid",
         "pay_now": "Pay Now",
         "rate_now": "Rate"
+    },
+    "topup": {
+        "title": "Deposit Cryptocurrency",
+        "description": "Select a currency and network to get your deposit address",
+        "select_currency": "Select Currency",
+        "select_network": "Select Network",
+        "deposit_address": "Deposit Address",
+        "copy_address": "Copy address",
+        "close": "Close",
+        "important_notice": "Important Notice",
+        "notice_1": "Only send {currency} to the corresponding network address",
+        "notice_2": "Minimum deposit amount may apply",
+        "notice_3": "Deposits typically require network confirmations",
+        "notice_4": "Double-check the address before sending",
+        "low_fees": "Low fees",
+        "higher_fees": "Higher fees",
+        "native_network": "Native network",
+        "bitcoin_network": "Bitcoin network"
+    },
+    "_withdraw": {
+        "title": "Withdraw Cryptocurrency",
+        "description": "Select currency, network and enter withdrawal details",
+        "select_currency": "Select Currency",
+        "select_network": "Select Network",
+        "withdrawal_address": "Withdrawal Address",
+        "withdrawal_amount": "Withdrawal Amount",
+        "address_placeholder": "Enter withdrawal address",
+        "amount_placeholder": "Enter amount",
+        "submit": "Submit Withdrawal",
+        "low_fees": "Low fees",
+        "higher_fees": "Higher fees",
+        "native_network": "Native network",
+        "bitcoin_network": "Bitcoin network"
     }
 }

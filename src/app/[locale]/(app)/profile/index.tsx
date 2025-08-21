@@ -8,6 +8,8 @@ import { useTranslations } from "next-intl";
 import { signout } from "../actions";
 import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import Topup from "@/components/topup";
+import Withdraw from "@/components/withdraw";
 
 const Profile = () => {
     const t =  useTranslations();
@@ -45,15 +47,15 @@ const Profile = () => {
                         <span className="mx-2 border-r-[1px] border-dashed"/>
                         {`$ ${user?.now_money}`}
                     </span>
-                    <div className="flex items-center w-full mt-3">
-                        <Link className="flex-1" href="/signin">
-                            <Button className="w-full">{t('top_up')}</Button>
-                        </Link>
-                        <Link className="flex-1 ml-2" href="/signup">
+                    <div className="w-full mt-3 grid grid-cols-2 gap-6">
+                        <Topup>
+                            <Button className="flex-1">{t('top_up')}</Button>
+                        </Topup>
+                        <Withdraw>
                             <Button variant="outline" className="border-primary text-primary w-full">
                                 {t('withdraw')}
                             </Button>
-                        </Link>
+                        </Withdraw>
                     </div>
                 </div>
                 <ul className="flex-1 mt-5">
