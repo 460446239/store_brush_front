@@ -21,6 +21,7 @@
     "withdraw": "Withdraw",
     "copy_success": "Copy successful",
     "confirm": "Confirm",
+    "back": "Back",
     "withdraw_carousel": "User {user} withdrew {amount} USD",
     "loading": "Loading",
     "tabbar": {
@@ -77,6 +78,32 @@
         "new_password_placeholder": "Enter new password",
         "submit": "Update Password",
         "success": "Password updated successfully"
+    },
+    "transactions": {
+        "cash_flow": "Cash Flow",
+        "top_up_flow": "Top Up History",
+        "withdraw_flow": "Withdraw History",
+        "transaction_history": "Transaction history",
+        "topup_history": "Top-up transaction history",
+        "withdraw_history": "Withdrawal transaction history",
+        "no_transactions": "No transactions found",
+        "no_topup_records": "No top-up records found",
+        "no_withdraw_records": "No withdrawal records found",
+        "withdrawal": "Withdrawal",
+        "commission_to_balance": "Commission to Balance",
+        "order_unfreeze": "Order Unfreeze",
+        "product_purchase": "Product Purchase",
+        "transaction": "Transaction",
+        "completed": "Completed",
+        "pending": "Pending",
+        "failed": "Failed",
+        "balance": "Balance",
+        "currency": "Currency",
+        "top_up": "Top Up",
+        "withdraw": "Withdraw",
+        "amount": "Amount",
+        "address": "Address",
+        "status": "Status"
     },
     "product": {
         "title": "Popular Products"

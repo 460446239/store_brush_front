@@ -13,10 +13,10 @@ import Withdraw from "@/components/withdraw";
 import PasswordChange from "@/components/password";
 
 const Profile = () => {
-    const t =  useTranslations();
+    const t = useTranslations();
     const { user } = useAuth();
     return <div className="flex-1 flex flex-col"
-                style={{ background: 'url(/bg1.3983be8b.png)' }}>
+        style={{ background: 'url(/bg1.3983be8b.png)' }}>
         <div className="flex items-center px-4 py-6">
             <Avatar className="size-14">
                 <AvatarImage src={user?.avatar} />
@@ -27,25 +27,25 @@ const Profile = () => {
                 <span className="flex items-center text-xs mt-1 text-primary-foreground">
                     <label className="mr-1">{t('invite_code')}:</label>
                     <Copyable text={user?.invite_code ?? ''} className="text-white">
-                        { user?.invite_code }
+                        {user?.invite_code}
                     </Copyable>
                 </span>
             </div>
         </div>
         <div className="mx-4 relative">
             <label className="block mr-1 text-sm mb-2 text-primary-foreground">{t('credit_score')}</label>
-            <label className="absolute bottom-0 text-xs -translate-x-2/3 translate-y-1/3 z-10 bg-primary text-white rounded-full px-2 py-1" 
+            <label className="absolute bottom-0 text-xs -translate-x-2/3 translate-y-1/3 z-10 bg-primary text-white rounded-full px-2 py-1"
                 style={{ left: `${user?.credit_score ?? 0}%` }}>
-                { user?.credit_score }
+                {user?.credit_score}
             </label>
-            <Progress value={user?.credit_score ?? 0}/>
+            <Progress value={user?.credit_score ?? 0} />
         </div>
         <div className="flex-1 bg-primary-foreground mt-6 pt-5 rounded-t-2xl">
             <div className="px-3 flex flex-col h-full">
                 <div className="flex flex-col">
                     <span className="border-[1px] border-primary rounded-sm p-2  mb-2">
                         <label className="text-sm text-secondary-foreground">{t('balance')}</label>
-                        <span className="mx-2 border-r-[1px] border-dashed"/>
+                        <span className="mx-2 border-r-[1px] border-dashed" />
                         {`$ ${user?.now_money}`}
                     </span>
                     <div className="w-full mt-3 grid grid-cols-2 gap-6">
@@ -60,21 +60,27 @@ const Profile = () => {
                     </div>
                 </div>
                 <ul className="flex-1 mt-5">
-                    <li className="py-2 flex items-center">
-                        <label className="flex-1">{ t('profile.cash_flow') }</label>
-                        <ChevronRight />
-                    </li>
-                    <li className="py-2 flex items-center">
-                        <label className="flex-1">{ t('profile.top_up_flow') }</label>
-                        <ChevronRight />
-                    </li>
-                    <li className="py-2 flex items-center">
-                        <label className="flex-1">{ t('profile.withdraw_flow') }</label>
-                        <ChevronRight />
-                    </li>
+                    <Link href="/cash_flow">
+                        <li className="py-2 flex items-center">
+                            <label className="flex-1">{t('profile.cash_flow')}</label>
+                            <ChevronRight />
+                        </li>
+                    </Link>
+                    <Link href="/topup">
+                        <li className="py-2 flex items-center">
+                            <label className="flex-1">{t('profile.top_up_flow')}</label>
+                            <ChevronRight />
+                        </li>
+                    </Link>
+                    <Link href="/withdraw">
+                        <li className="py-2 flex items-center">
+                            <label className="flex-1">{t('profile.withdraw_flow')}</label>
+                            <ChevronRight />
+                        </li>
+                    </Link>
                     <PasswordChange>
                         <li className="py-2 flex items-center cursor-pointer hover:bg-gray-50">
-                            <label className="flex-1">{ t('profile.change_password') }</label>
+                            <label className="flex-1">{t('profile.change_password')}</label>
                             <ChevronRight />
                         </li>
                     </PasswordChange>
