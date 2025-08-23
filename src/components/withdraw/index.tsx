@@ -5,6 +5,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
+import http from '@/lib/client';
+import { toast } from "sonner";
+import { useAuth } from "@/lib/auth/context";
 
 interface WithdrawProps {
     children: ReactElement;
@@ -30,6 +33,7 @@ const Withdraw = (props: WithdrawProps) => {
     const [withdrawalAmount, setWithdrawalAmount] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const t = useTranslations('_withdraw');
+    const { user } = useAuth();
 
     const getCurrencyInfo = (): Currency[] => {
         return [
@@ -88,19 +92,18 @@ const Withdraw = (props: WithdrawProps) => {
         setIsSubmitting(true);
         try {
             // Handle withdrawal submission here
-            const withdrawalData = {
-                currency: selectedCurrency,
-                network: selectedNetworkInfo.chain,
+            const data = {
+                bankname: selectedNetworkInfo.name,
                 address: withdrawalAddress,
-                amount: parseFloat(withdrawalAmount)
+                money: parseFloat(withdrawalAmount)
             };
 
-            console.log('Withdrawal submitted:', withdrawalData);
-
+            await http.post('/api/extract/cash', {}, { params: data });
+            toast.success(t('success'))
             // Close dialog after successful submission
             setOpen(false);
-        } catch (error) {
-            console.error('Withdrawal failed:', error);
+        } catch (error: any) {
+            toast.error(error)
         } finally {
             setIsSubmitting(false);
         }
@@ -114,7 +117,7 @@ const Withdraw = (props: WithdrawProps) => {
                 onClick: () => setOpen(true)
             } as any)}
             <Dialog open={open} onOpenChange={handleOpenChange}>
-                <DialogContent className="max-w-sm">
+                <DialogContent>
                     <DialogHeader>
                         <DialogTitle className="text-xl font-bold">{t('title')}</DialogTitle>
                         <DialogDescription>
@@ -197,11 +200,19 @@ const Withdraw = (props: WithdrawProps) => {
                                     type="number"
                                     placeholder={t('amount_placeholder')}
                                     value={withdrawalAmount}
-                                    onChange={(e) => setWithdrawalAmount(e.target.value)}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        if (+value > +(user?.now_money ?? '0')) {
+                                            setWithdrawalAmount(user?.now_money ?? '0')
+                                        } else {
+                                            setWithdrawalAmount(value);
+                                        }
+                                    }}
                                     min="0"
                                     step="0.01"
                                     className="w-full"
                                 />
+                                <label className="text-muted-foreground text-xs">*{ t('prompt', { amount: user?.now_money ?? '0' }) }</label>
                             </div>
                         )}
 

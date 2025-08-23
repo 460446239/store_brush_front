@@ -143,7 +143,7 @@ const Topup = (props: TopupProps) => {
                 onClick: () => setOpen(true)
             } as any)}
             <Dialog open={open} onOpenChange={(open) => { if (!open) setOpen(open) }}>
-                <DialogContent className="max-w-sm">
+                <DialogContent>
                     <DialogHeader>
                         <DialogTitle className="text-xl font-bold">{t('title')}</DialogTitle>
                         <DialogDescription>

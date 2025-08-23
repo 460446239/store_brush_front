@@ -129,6 +129,8 @@
         "submit": "Submit Withdrawal",
         "low_fees": "Low fees",
         "higher_fees": "Higher fees",
+        "prompt": "Currently {amount} USDT can be withdrawn",
+        "success": "Withdrawal has been applied and is awaiting review",
         "native_network": "Native network",
         "bitcoin_network": "Bitcoin network"
     }
