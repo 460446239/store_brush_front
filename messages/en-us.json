@@ -38,6 +38,8 @@
         "account": "The email format is incorrect",
         "password": "Password should be between 6 and 32 characters",
         "invite_code": "The passwords you entered twice do not match.",
+        "old_pwd": "Password should be between 6 and 32 characters",
+        "pwd": "Password should be between 6 and 32 characters",
         "400": "Not Found",
         "410000": "Incomplete parameters",
         "420400": "Insufficient balance",
@@ -63,7 +65,18 @@
     "profile": {
         "cash_flow": "Cash flow",
         "top_up_flow": "Top Up flow",
-        "withdraw_flow": "Withdraw flow"
+        "withdraw_flow": "Withdraw flow",
+        "change_password": "Change Password"
+    },
+    "_password": {
+        "title": "Change Password",
+        "description": "Update your account password",
+        "old_password": "Current Password",
+        "new_password": "New Password",
+        "old_password_placeholder": "Enter current password",
+        "new_password_placeholder": "Enter new password",
+        "submit": "Update Password",
+        "success": "Password updated successfully"
     },
     "product": {
         "title": "Popular Products"

@@ -11,7 +11,6 @@ import { useTranslations } from "use-intl";
 import { z } from "zod"
 import { toast } from "sonner";
 import { post } from "./actions";
-import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
     account: z.email(),

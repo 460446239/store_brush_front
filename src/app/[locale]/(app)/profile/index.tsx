@@ -10,6 +10,7 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import Topup from "@/components/topup";
 import Withdraw from "@/components/withdraw";
+import PasswordChange from "@/components/password";
 
 const Profile = () => {
     const t =  useTranslations();
@@ -71,6 +72,12 @@ const Profile = () => {
                         <label className="flex-1">{ t('profile.withdraw_flow') }</label>
                         <ChevronRight />
                     </li>
+                    <PasswordChange>
+                        <li className="py-2 flex items-center cursor-pointer hover:bg-gray-50">
+                            <label className="flex-1">{ t('profile.change_password') }</label>
+                            <ChevronRight />
+                        </li>
+                    </PasswordChange>
                 </ul>
                 <Button className="w-full my-3" onClick={signout}>{t('signout')}</Button>
             </div>
