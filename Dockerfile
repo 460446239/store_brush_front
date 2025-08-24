@@ -22,9 +22,9 @@ COPY . .
 # 设置环境变量
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
-ENV NEXT_PUBLIC_PROJECT_TYPE="Tiktok"
-ENV API_URL="http://bruchstore668.us/api"
-ENV DATABASE_URL="mysql://crmeb31:crmeb31@168.231.126.130:3306/crmeb31"
+ENV NEXT_PUBLIC_PROJECT_TYPE Tiktok
+ENV API_URL http://bruchstore668.us/api
+ENV DATABASE_URL mysql://crmeb31:crmeb31@168.231.126.130:3306/crmeb31
 
 # 构建应用
 RUN \
@@ -40,9 +40,9 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV NEXT_PUBLIC_PROJECT_TYPE="Tiktok"
-ENV API_URL="http://bruchstore668.us/api"
-ENV DATABASE_URL="mysql://crmeb31:crmeb31@168.231.126.130:3306/crmeb31"
+ENV NEXT_PUBLIC_PROJECT_TYPE Tiktok
+ENV API_URL http://bruchstore668.us/api
+ENV DATABASE_URL mysql://crmeb31:crmeb31@168.231.126.130:3306/crmeb31
 
 # 创建非 root 用户
 RUN addgroup --system --gid 1001 nodejs
