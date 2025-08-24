@@ -26,6 +26,9 @@ ENV NEXT_PUBLIC_PROJECT_TYPE Tiktok
 ENV API_URL http://bruchstore668.us/api
 ENV DATABASE_URL mysql://crmeb31:crmeb31@168.231.126.130:3306/crmeb31
 
+# 构建prisma脚本
+RUN npx prisma generate
+
 # 构建应用
 RUN \
   if [ -f yarn.lock ]; then yarn build; \
