@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2Icon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { useTranslations } from "use-intl";
 import { z } from "zod"
 
@@ -31,7 +32,7 @@ export const ForgotForm = () => {
     });
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
-        console.log(data);
+        toast.error('errors.forgot')
     }
 
     return <Form className="flex flex-col gap-6" form={form} onSubmit={onSubmit}>
