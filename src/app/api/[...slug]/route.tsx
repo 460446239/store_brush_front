@@ -101,6 +101,7 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
                 headers: responseHeaders 
             });
         }
+        console.log(data);
         const t = await getTranslations();
         return new NextResponse(
             JSON.stringify({
