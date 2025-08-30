@@ -9,7 +9,7 @@ const I18n = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
     // 定义受保护路由
     const protectedRoutes = ['/teams', '/brush', '/record', '/profile'];
-    const isProtectedRoute = protectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
+    const isProtectedRoute = protectedRoutes.some(route => request.nextUrl.pathname.includes(route));
 
     const sessionCookie = request.cookies.get(AUTH_COOKIE_NAME)?.value;
     const { valid } = await verifyToken(sessionCookie ?? '');
