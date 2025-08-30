@@ -9,6 +9,15 @@ import { cn } from "@/lib/utils";
 
 const Languages = [
     { key: 'en-us', label: 'English' },
+    { key: 'de-de', label: 'Deutsch' },
+    { key: 'fr-fr', label: 'Français' },
+    { key: 'ru-ru', label: 'Русский' },
+    { key: 'it-it', label: 'Italiano' },
+    { key: 'es-es', label: 'Español' },
+    { key: 'pt-pt', label: 'Português' },
+    { key: 'ro-ro', label: 'Română' },
+    { key: 'ja-jp', label: '日本語' },
+    { key: 'ko-kr', label: '한국어' },
     { key: 'zh-cn', label: '简体中文' },
 ];
 
