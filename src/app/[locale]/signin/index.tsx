@@ -21,6 +21,7 @@ const schema = z.object({
 
 export const SignInForm = () => {
     const t = useTranslations();
+    const router = useRouter();
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         mode: 'onChange',
@@ -34,7 +35,7 @@ export const SignInForm = () => {
         try {
             await post(data);
             toast.success(t('signin_success'));
-            location.reload();
+            router.replace('/');
         } catch (e: any) {
             toast.error(e.message);
         }

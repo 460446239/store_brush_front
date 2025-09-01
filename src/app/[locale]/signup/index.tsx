@@ -43,7 +43,7 @@ export const SignUpForm = () => {
             if (redirect) {
                 router.replace(redirect);
             } else {
-                location.reload();
+                router.replace('/');
             }
         } catch (e: any) {
             toast.error(e.message);
