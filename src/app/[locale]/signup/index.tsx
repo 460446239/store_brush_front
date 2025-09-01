@@ -42,6 +42,8 @@ export const SignUpForm = () => {
             const redirect = search.get('redirect');
             if (redirect) {
                 router.replace(redirect);
+            } else {
+                location.reload();
             }
         } catch (e: any) {
             toast.error(e.message);
