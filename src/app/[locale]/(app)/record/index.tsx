@@ -47,7 +47,7 @@ const Record = () => {
 
      const handlePayment = async (order: BrushOrder) => {
         try {
-            await http<any, BrushOrder>('/api/pay_border');
+            await http<any, BrushOrder>('/api/pay_border', { params: { order_id: order.order_id } });
             await mutate(
                 key => typeof key === 'string' && key.startsWith('/api/team_log'),
                 undefined,

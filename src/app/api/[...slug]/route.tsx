@@ -92,7 +92,7 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
         responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         const data = await response.json();
-        
+        console.log(response)
         if (data.status === 200) {
             return NextResponse.json(data ?? {}, { 
                 status: response.status,
@@ -101,7 +101,6 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
             });
         }
 
-       
         // 返回响应
         const t = await getTranslations();
         return new NextResponse(
