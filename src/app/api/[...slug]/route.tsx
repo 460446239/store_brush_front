@@ -91,20 +91,23 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
         responseHeaders.set('Access-Control-Allow-Origin', '*');
         responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        
         const data = await response.json();
-        if (response.status === 200) {
+        
+        if (data.status === 200) {
             return NextResponse.json(data ?? {}, { 
                 status: response.status,
                 statusText: response.statusText,
                 headers: responseHeaders 
             });
         }
+
+       
         // 返回响应
         const t = await getTranslations();
         return new NextResponse(
             JSON.stringify({
-                message: t(`errors.${data.code ?? 'server'}`)
+                status: data.status,
+                msg: t(`errors.${t(data.code)?? 'server'}`)
             }),
             {
                 status: 500,
@@ -117,8 +120,8 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
     } catch (error) {
         return new NextResponse(
             JSON.stringify({
-                error: 'Proxy request failed',
-                message: error instanceof Error ? error.message : 'Unknown error'
+                status: 500,
+                msg: 'Proxy request failed',
             }),
             {
                 status: 500,
