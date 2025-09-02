@@ -1,3 +1,4 @@
+'use client'
 import { cloneElement, ReactElement, useState } from "react";
 import React from "react";
 import useSWR from "swr";
@@ -37,7 +38,6 @@ const Topup = (props: TopupProps) => {
     const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
     const t = useTranslations('topup');
 
-    console.log(data);
     const copyToClipboard = async (address: string) => {
         try {
             await navigator.clipboard.writeText(address);

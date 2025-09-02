@@ -1,3 +1,4 @@
+'use client'
 import { cloneElement, ReactElement, useState } from "react";
 import React from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
@@ -27,6 +28,7 @@ interface Currency {
 
 const Withdraw = (props: WithdrawProps) => {
     const [open, setOpen] = useState(false);
+    const auth = useAuth();
     const [selectedCurrency, setSelectedCurrency] = useState('');
     const [selectedNetwork, setSelectedNetwork] = useState<string>('');
     const [withdrawalAddress, setWithdrawalAddress] = useState('');
@@ -99,7 +101,8 @@ const Withdraw = (props: WithdrawProps) => {
             };
 
             await http.post('/api/extract/cash', {}, { params: data });
-            toast.success(t('success'))
+            toast.success(t('success'));
+            location.reload();
             // Close dialog after successful submission
             setOpen(false);
         } catch (error: any) {

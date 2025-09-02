@@ -11,6 +11,8 @@ import { MENUS } from "@/app/constant";
 import prisma from "@/lib/prisma/client";
 import LogoIcon from '@/assests/icons/logo.svg';
 import Carousel from "@/components/carousel";
+import Withdraw from "@/components/withdraw";
+import Topup from "@/components/topup";
 
 const FAKE_WITHDRAW = [
     {
@@ -182,15 +184,15 @@ export default async function Home() {
                             <span className="mx-2 border-r-[1px] border-dashed" />
                             {`$ ${user.now_money}`}
                         </span>
-                        <div className="flex items-center w-full mt-3">
-                            <Link className="flex-1" href="/signin">
+                        <div className="w-full mt-3 grid grid-cols-2 gap-2">
+                            <Topup>
                                 <Button className="w-full">{t('top_up')}</Button>
-                            </Link>
-                            <Link className="flex-1 ml-2" href="/signup">
+                            </Topup>
+                            <Withdraw>
                                 <Button variant="outline" className="border-primary text-primary w-full">
                                     {t('withdraw')}
                                 </Button>
-                            </Link>
+                            </Withdraw>
                         </div>
                     </div>
                 </div> : null
