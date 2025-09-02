@@ -19,7 +19,7 @@ const schema = z.object({
     password: z.string()
         .min(6)
         .max(16),
-    invite_code: z.string().optional()
+    invite_code: z.string()
 });
 
 export const SignUpForm = () => {
@@ -32,13 +32,14 @@ export const SignUpForm = () => {
         defaultValues: {
             account: '',
             password: '',
-            invite_code: undefined,
+            invite_code: '',
         }
     });
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
         try {
             await post(data);
+            toast.success(t('signin_success'));
             const redirect = search.get('redirect');
             if (redirect) {
                 router.replace(redirect);
@@ -62,7 +63,8 @@ export const SignUpForm = () => {
             <Input type="password" placeholder={t('placeholder.input', { field: t('password').toLowerCase() })} />
         </FormField>
         <FormField name="invite_code"
-                   label={t('invite_code')}>
+                   label={t('invite_code')}
+                   reqired>
             <Input placeholder={t('placeholder.input', { field: t('invite_code').toLowerCase() })} />
         </FormField>
         <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
