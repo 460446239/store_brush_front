@@ -37,6 +37,7 @@ const Topup = (props: TopupProps) => {
     const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
     const t = useTranslations('topup');
 
+    console.log(data);
     const copyToClipboard = async (address: string) => {
         try {
             await navigator.clipboard.writeText(address);
