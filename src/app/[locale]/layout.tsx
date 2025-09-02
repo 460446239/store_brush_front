@@ -7,8 +7,8 @@ import { NextIntlClientProvider } from "next-intl";
 import Providers from "./providers";
 import { Toaster } from 'sonner';
 import { getUser } from "@/lib/auth/server";
-import "@/app/globals.css";
 import { AuthProvider } from "@/lib/auth/context";
+import "@/app/globals.css";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",

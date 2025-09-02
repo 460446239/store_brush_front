@@ -9,9 +9,9 @@ const instance = axios.create({
 
 instance.interceptors.response.use(async (response) => {
     const t = await getTranslations();
-    console.log(response.data)
-    if (response.data.status !== 200) return Promise.reject(t(`errors.${response.data.status ?? 'server'}`));
-    return response?.data?.data;
+    console.log(response)
+    if (response.status !== 200) return Promise.reject(t(`errors.${response.data.status ?? 'server'}`));
+    return response?.data;
 }, async (error) => {
     const t = await getTranslations();
     const err = error?.response;

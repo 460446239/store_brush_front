@@ -23,4 +23,5 @@ export interface AuthTokens {
 export interface AuthContextType {
     user: User | null
     isAuthenticated: boolean
+    setUser: (user: User) => void
 }

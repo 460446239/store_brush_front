@@ -92,15 +92,15 @@ async function proxyRequest(request: NextRequest): Promise<Response> {
         responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         
-        // 返回响应
         const data = await response.json();
-        if (data.status === 200) {
-            return NextResponse.json(data?.data ?? {}, { 
+        if (response.status === 200) {
+            return NextResponse.json(data ?? {}, { 
                 status: response.status,
                 statusText: response.statusText,
                 headers: responseHeaders 
             });
         }
+        // 返回响应
         const t = await getTranslations();
         return new NextResponse(
             JSON.stringify({

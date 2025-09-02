@@ -11,6 +11,8 @@ import { useTranslations } from "use-intl";
 import { z } from "zod"
 import { toast } from "sonner";
 import { post } from "./actions";
+import { useAuth } from "@/lib/auth/context";
+import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
     account: z.email(),
@@ -19,9 +21,11 @@ const schema = z.object({
         .max(32)
 });
 
-export const SignInForm = () => {
+export const SignInForm = (props: any) => {
     const t = useTranslations();
     const router = useRouter();
+    const search = useSearchParams();
+    const { setUser } = useAuth();
     const form = useForm<z.infer<typeof schema>>({
         resolver: zodResolver(schema),
         mode: 'onChange',
@@ -33,9 +37,15 @@ export const SignInForm = () => {
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
         try {
-            await post(data);
+            const user = await post(data);
+            setUser(user)
             toast.success(t('signin_success'));
-            router.replace('/');
+            if (props.onSuccess) {
+                props.onSuccess?.();
+            } else {
+                const redirect = search.get('redirect')
+                router.replace(redirect ?? '/');
+            }
         } catch (e: any) {
             toast.error(e.message);
         }

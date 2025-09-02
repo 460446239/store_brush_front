@@ -17,6 +17,7 @@ export function AuthProvider({
     const value = {
         user,
         isAuthenticated: !!user,
+        setUser,
     }
 
     return (
