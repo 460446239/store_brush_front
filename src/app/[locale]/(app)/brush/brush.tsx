@@ -99,7 +99,7 @@ const Brush = () => {
                         }
                         <li className="flex items-center justify-between py-1 text-sm">
                             <label className="text-muted-foreground">{t('brush.trasnaction_at')}:</label>
-                            <label>{ dayjs(order?.add_time).format("YYYY-MM-DD HH:mm") }</label>
+                            <label>{ dayjs((order?.add_time ?? 0) * 1000).format("YYYY-MM-DD HH:mm") }</label>
                         </li>
                     </ul>
                     <span className="border-t-[1px] my-6 block" />
