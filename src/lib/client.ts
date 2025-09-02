@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.response.use(async (response) => {
-    if (response.status !== 200) return Promise.reject(response.data.message);
+    if (response.data.status !== 200) return Promise.reject(response.data.msg);
     return response?.data.data;
 }, async (error) => {
     const err = error?.response;
