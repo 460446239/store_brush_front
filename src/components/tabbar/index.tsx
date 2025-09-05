@@ -16,11 +16,9 @@ interface TabbarProps {
 
 export function Tabbar(props: TabbarProps) {
     const t = useTranslations();
-    const isMobile = useIsMobile();
     const pathname = usePathname();
     
-    return (
-        isMobile ?  <div className="fixed left-0 bottom-0 right-0 h-14 grid grid-cols-5 py-2 border-[1px] bg-primary-foreground">
+    return <div className="fixed left-0 bottom-0 right-0 h-14 grid grid-cols-5 py-2 border-[1px] bg-primary-foreground">
                         {
                             props.items.map((item) => {
                                 return <Link href={item.path} key={item.path} className={cn("flex flex-col items-center text-foreground", { "text-primary": pathname === item.path })}>
@@ -29,6 +27,5 @@ export function Tabbar(props: TabbarProps) {
                                         </Link>
                             })
                         }
-                    </div> : null
-    )
+                    </div>
 }
