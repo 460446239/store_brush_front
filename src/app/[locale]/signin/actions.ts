@@ -7,6 +7,6 @@ export async function post(body: any) {
         const session = await signIn(body);
         return session;
     } catch (e) {
-        throw e
+        return { error: e }
     }
 }

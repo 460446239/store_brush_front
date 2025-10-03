@@ -48,7 +48,6 @@ const WithdrawItem = ({ item }: WithdrawItemProps) => {
         }
         return address;
     };
-
     return (
         <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-3">
             <div className="flex justify-between items-start">
@@ -64,7 +63,8 @@ const WithdrawItem = ({ item }: WithdrawItemProps) => {
                     
                     <div className="flex items-center justify-between mb-2">
                         <span className="text-xs text-gray-500">
-                            {dayjs(item.add_time).format('YYYY-MM-DD HH:mm')}
+                            {/* @ts-ignore */}
+                            {dayjs(item.add_time * 1000).format('YYYY-MM-DD HH:mm')}
                         </span>
                         {getStatusBadge(item.status)}
                     </div>

@@ -36,9 +36,12 @@ export const SignInForm = (props: any) => {
     });
 
     const onSubmit = async (data: z.infer<typeof schema>) => {
-        try {
-            const user = await post(data);
-            setUser(user)
+        const r = await post(data);
+        if ('error' in r) {
+            // @ts-ignore
+            toast.error(r.error);
+        } else {
+            setUser(r)
             toast.success(t('signin_success'));
             if (props.onSuccess) {
                 props.onSuccess?.();
@@ -46,8 +49,6 @@ export const SignInForm = (props: any) => {
                 const redirect = search.get('redirect')
                 router.replace(redirect ?? '/');
             }
-        } catch (e: any) {
-            toast.error(e.message);
         }
     }
 
